@@ -14,7 +14,7 @@ val PROJECT_NAME    = "app"
 val PROJECT_VERSION = "0.1-SNAPSHOT"
 val SCALA_VERSION   = "2.12.4"
 val AKKA_VERSION    = "2.5.8"
-val AKKA_HTTP_VERSION    = "10.0.11"
+val AKKA_HTTP_VERSION    = "10.1.0-RC1"
 
 //////////////////////////////////////////////////////////////////////////////
 // DEPENDENCY VERSIONS
@@ -65,6 +65,8 @@ lazy val root = (project in file(".")).
       "com.typesafe.slick" %% "slick-codegen" % SLICK_VERSION,
       "mysql" % "mysql-connector-java" % "6.0.6",
       "org.flywaydb" % "flyway-core" % "5.0.6",
+
+      "com.github.etaty" %% "rediscala" % "1.8.0",
 
       "com.typesafe"     % "config"          % TYPESAFE_CONFIG_VERSION,
       "ch.qos.logback"   % "logback-classic" % LOGBACK_VERSION,
