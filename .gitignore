@@ -1,0 +1,37 @@
+CoralogixSDK.config
+# Logs
+logs
+*.log
+
+# scala / intellij ignores
+lib-cov
+*.seed
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
+*.sc
+
+backup-*
+
+pids
+results
+components/
+target/
+project/target/
+data/
+*.rdb
+
+# intellij ignores
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea_modules
+.classpath
+.project
+RUNNING_PID
+.settings
+
+.cache*
