@@ -37,6 +37,7 @@ lazy val root = (project in file(".")).
 
     scalacOptions in Compile ++= Seq("-deprecation", "-feature", "-unchecked", "-Xlog-reflective-calls", "-Xlint" , "-encoding", "utf8"),
     javacOptions in Compile ++= Seq("-Xlint:unchecked", "-Xlint:deprecation"),
+    resolvers += Resolver.bintrayRepo("jastice","maven"),
     javaOptions in run ++= Seq("-Xms128m", "-Xmx1024m"),
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-actor" % AKKA_VERSION,
@@ -66,12 +67,9 @@ lazy val root = (project in file(".")).
       "mysql" % "mysql-connector-java" % "6.0.6",
       "org.flywaydb" % "flyway-core" % "5.0.6",
 
-      "com.github.etaty" %% "rediscala" % "1.8.0",
-
       "com.typesafe"     % "config"          % TYPESAFE_CONFIG_VERSION,
       "ch.qos.logback"   % "logback-classic" % LOGBACK_VERSION,
       "ch.qos.logback"   % "logback-classic" % LOGBACK_VERSION % "runtime",
-
 
       "com.typesafe.akka" %% "akka-http-testkit" % AKKA_HTTP_VERSION,
       "org.mockito" % "mockito-core" % "1.10.19",
@@ -83,6 +81,7 @@ lazy val root = (project in file(".")).
     licenses := Seq(("CC0", url("http://creativecommons.org/publicdomain/zero/1.0"))),
     fork in Test := true
   )
+
 
 //credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 assemblyMergeStrategy in assembly := {

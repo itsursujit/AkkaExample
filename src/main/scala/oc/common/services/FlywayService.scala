@@ -9,13 +9,17 @@ class FlywayService extends ConfigInterface {
   flyway.setDataSource(config.getString("oc.db.url"), config.getString("oc.db.user"), config.getString("oc.db.password"))
 
   def migrateDatabaseSchema: FlywayService = {
-    //flyway.baseline()
     flyway.migrate()
     this
   }
 
   def dropDatabase: FlywayService = {
     flyway.clean()
+    this
+  }
+
+  def initiateDatabase: FlywayService = {
+    flyway.baseline()
     this
   }
 }

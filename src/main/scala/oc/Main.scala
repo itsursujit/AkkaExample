@@ -9,6 +9,9 @@ import com.typesafe.scalalogging.StrictLogging
 import oc.common.services.FlywayService
 import oc.gateway.ControllerGateway
 
+import scala.concurrent.Await
+import scala.concurrent.duration.Duration
+
 object Main extends App with Dependencies with StrictLogging {
 
   try
@@ -21,6 +24,8 @@ object Main extends App with Dependencies with StrictLogging {
 
     lazy val httpInterface: String = config.getString("http.interface")
     lazy val httpPort: Int = config.getInt("http.port")
+
+    Await.result(actorSystem.whenTerminated, Duration.Inf)
   }
   catch{
     case ioException: IOException => println(ioException.getMessage)
