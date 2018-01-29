@@ -1,4 +1,4 @@
-package oc.common
+package oc.common.entities
 
 case class UserData(email: String,
                     username: String,

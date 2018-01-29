@@ -13,7 +13,7 @@ import akka.pattern.ask
 import akka.stream.{ActorMaterializer, Materializer}
 import akka.util.Timeout
 import com.typesafe.config.{Config, ConfigFactory}
-import oc.common.RegistrationData
+import oc.common.entities.RegistrationData
 import oc.interfaces.Controller
 import oc.redis.UserHandler._
 import oc.users.UserService

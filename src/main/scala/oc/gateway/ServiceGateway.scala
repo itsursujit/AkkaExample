@@ -3,7 +3,7 @@ package oc.gateway
 import cats.instances.FutureInstances
 import com.softwaremill.macwire._
 import oc.auth.{AuthService, AuthServiceImpl}
-import oc.common.{BCryptHashService, HashService}
+import oc.common.services.{BCryptHashService, HashService}
 import oc.interfaces.{ActorInterface, DBIOInstancesInterface}
 import oc.users.{UserService, UserServiceImpl}
 import slick.dbio.DBIO

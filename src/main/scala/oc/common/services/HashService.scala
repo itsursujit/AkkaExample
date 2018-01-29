@@ -1,4 +1,4 @@
-package oc.common
+package oc.common.services
 
 import org.mindrot.jbcrypt.BCrypt
 

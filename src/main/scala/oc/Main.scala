@@ -6,7 +6,7 @@ import java.io.IOException
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.util.FastFuture._
 import com.typesafe.scalalogging.StrictLogging
-import oc.common.FlywayService
+import oc.common.services.FlywayService
 import oc.gateway.ControllerGateway
 
 object Main extends App with Dependencies with StrictLogging {

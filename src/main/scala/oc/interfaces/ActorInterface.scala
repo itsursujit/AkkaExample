@@ -1,7 +1,6 @@
 package oc.interfaces
 
 import akka.actor.ActorSystem
-import akka.event.{Logging, LoggingAdapter}
 import akka.stream.{ActorMaterializer, Materializer}
 import akka.util.Timeout
 import scala.concurrent.duration._

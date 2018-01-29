@@ -1,7 +1,7 @@
 package oc.auth
 
 import akka.http.scaladsl.server.Route
-import oc.common.RegistrationData
+import oc.common.entities.RegistrationData
 import oc.interfaces.Controller
 import oc.users.UserService
 import org.json4s.jackson.Serialization
