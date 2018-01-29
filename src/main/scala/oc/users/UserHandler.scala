@@ -1,7 +1,10 @@
-package oc.redis
+package oc.users
 
 import akka.actor.{Actor, ActorLogging, Props}
 import akka.pattern.pipe
+import oc.redis.Repo
+
+import scala.concurrent.ExecutionContextExecutor
 
 object UserHandler {
   def props(db: Repo): Props = Props(new UserHandler(db))
@@ -18,7 +21,7 @@ object UserHandler {
 
 class UserHandler(db: Repo) extends Actor with ActorLogging {
   import UserHandler._
-  implicit val ec = context.dispatcher
+  implicit val ec: ExecutionContextExecutor = context.dispatcher
   override def receive: Receive = {
     case Register(id, pwd) =>
       db.upsert(id, pwd) pipeTo sender()

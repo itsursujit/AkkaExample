@@ -16,7 +16,7 @@ object Main extends App with Dependencies with StrictLogging {
     val flywayService = new FlywayService
     flywayService.migrateDatabaseSchema
     Http().bindAndHandle(routes, httpInterface, httpPort).fast
-      .map(binding => logger.info(s"RealWorld server started on ${binding.localAddress}"))
+      .map(binding => logger.info(s"OC server started on ${binding.localAddress}"))
 
 
     lazy val httpInterface: String = config.getString("http.interface")

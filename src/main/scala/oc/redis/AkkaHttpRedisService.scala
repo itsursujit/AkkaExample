@@ -1,3 +1,4 @@
+/*
 package oc.redis
 
 
@@ -117,3 +118,4 @@ object AkkaHttpRedisService extends App with Service with ConcreteRedis {
 
   Http().bindAndHandle(route , config.getString("http.interface"), config.getInt("http.port"))
 }
+*/
