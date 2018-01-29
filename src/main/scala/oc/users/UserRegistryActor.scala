@@ -1,6 +1,10 @@
 package oc.users
 
-import akka.actor.{ Actor, ActorLogging, Props }
+import akka.actor.{Actor, ActorLogging, Props}
+import oc.common.entities.RegistrationData
+import slick.dbio.DBIO
+
+import scala.concurrent.Future
 
 //#user-case-classes
 final case class UserRegistery(name: String, age: Int, countryOfResidence: String)
@@ -11,6 +15,7 @@ object UserRegistryActor {
   final case class ActionPerformed(description: String)
   final case object GetUsers
   final case class CreateUser(user: UserRegistery)
+  final case class RegisterUser(user: RegistrationData)
   final case class GetUser(name: String)
   final case class DeleteUser(name: String)
 
@@ -25,6 +30,8 @@ class UserRegistryActor extends Actor with ActorLogging {
   def receive: Receive = {
     case GetUsers =>
       sender() ! Users(users.toSeq)
+/*    case RegisterUser(user) =>
+      sender() ! userService.registerUser(user)*/
     case CreateUser(user) =>
       users += user
       sender() ! ActionPerformed(s"User ${user.name} created.")
@@ -32,6 +39,6 @@ class UserRegistryActor extends Actor with ActorLogging {
       sender() ! users.find(_.name == name)
     case DeleteUser(name) =>
       users.find(_.name == name) foreach { user => users -= user }
-      sender() ! ActionPerformed(s"User ${name} deleted.")
+      sender() ! ActionPerformed(s"User $name deleted.")
   }
 }
